@@ -118,14 +118,7 @@ If the state changes during the interaction (e.g., started planning but got over
    - **Stage setup**: Give 2-3 concrete, fast actions. Don't ask — tell. E.g., "Before you start: glass of water, close other tabs, headphones on if that helps."
    - **Timer**: Depends on environment — see below.
 3. **Timer — adapt to environment**:
-   - **Claude Code or any context with terminal access**: After the user says "go", run the timer as a background command and go silent:
-     ```bash
-     # macOS
-     sleep 1500 && osascript -e 'display notification "Focus block done! Come back when ready." with title "ADHD Copilot 🧠" sound name "Glass"' && say "Time is up."
-     # Linux fallback
-     sleep 1500 && notify-send "ADHD Copilot 🧠" "Focus block done!" || echo "Timer done."
-     ```
-     Adjust `sleep` seconds to match the agreed duration (default 25 min = 1500s).
+   - **Claude Code or any context with terminal access**: After the user says "go", ask for their confirmation to run a background timer, then use the available Bash tool to wait the agreed duration (default 25 min) and send a local system notification when done. Go silent immediately after launching it.
    - **Claude.ai or no terminal access**: Tell the user directly — "Set a 25-min timer on your phone or browser, then say go 🟢" — and go silent once they confirm.
 4. **Go silent** — After setup + timer (launched or instructed), stop sending messages. Wait for the user to return.
 5. **After the block** — ONE question only:
