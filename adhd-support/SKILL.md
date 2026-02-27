@@ -117,9 +117,9 @@ If the state changes during the interaction (e.g., started planning but got over
    - **Micro-step**: Propose it directly. Don't ask. E.g., "Your first move: open a blank doc and write one sentence about X."
    - **Stage setup**: Give 2-3 concrete, fast actions. Don't ask — tell. E.g., "Before you start: glass of water, close other tabs, headphones on if that helps."
    - **Timer**: Depends on environment — see below.
-3. **Timer — adapt to environment**:
-   - **Claude Code or any context with terminal access**: After the user says "go", ask for their confirmation to run a background timer, then use the available Bash tool to wait the agreed duration (default 25 min) and send a local system notification when done. Go silent immediately after launching it.
-   - **Claude.ai or no terminal access**: Tell the user directly — "Set a 25-min timer on your phone or browser, then say go 🟢" — and go silent once they confirm.
+3. **Timer — always user-side**:
+   - Tell the user: "Set a 25-min timer on your phone or browser, then say go 🟢"
+   - Never attempt to run timers, shell commands, or system notifications on behalf of the user. The timer is always the user's responsibility.
 4. **Go silent** — After setup + timer (launched or instructed), stop sending messages. Wait for the user to return.
 5. **After the block** — ONE question only:
    - "How did it go? Keep going, switch, or done for now?"
