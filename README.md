@@ -66,18 +66,14 @@ Each skill comes with a pre-packaged `.skill` file for direct upload to Claude.a
 
 ## Skill Structure
 
-Each skill folder follows this structure:
+Every skill has a folder with at minimum a `SKILL.md` — the main definition file with behavior, rules, and instructions. Beyond that, each skill can include whatever supporting files it needs (templates, reference guides, strategy docs, etc.) and reference them from `SKILL.md`.
 
 ```
 skill-name/
-├── SKILL.md              # Main skill definition — instructions, modes, behavior
-└── references/           # Supporting files referenced by the skill
-    ├── templates.md
-    ├── evidence-strategies.md
-    └── states-and-signals.md
+├── SKILL.md        # Required — main skill definition
+├── templates.md    # Optional — whatever the skill needs
+└── other-file.md
 ```
-
-The `SKILL.md` file contains the full behavior definition: when to activate, how to operate, what rules to follow. Reference files contain supporting material (templates, evidence-based strategies, signal guides) that the skill consults during a session.
 
 ---
 
